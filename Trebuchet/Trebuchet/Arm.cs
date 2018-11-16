@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    public class Arm
+    public class Arm : IBreakable
     {
         public int Angle { get; set; }
         public int Speed { get; set; }
         public int PdV { get; set; }
+
+        public bool Broken
+        {
+            get
+            {
+                return PdV <= 0;
+            }
+        }
 
         public Arm()
         {

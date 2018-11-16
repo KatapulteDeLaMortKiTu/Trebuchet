@@ -4,18 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trebuchet
+namespace Trebuchet 
 {
-    public class Beam
+    public class Beam : IBreakable
     {
         public int PdV { get; set; }
 
-        public void Stop(Arm arm)
+        public bool Broken
         {
-
-            arm.Speed = 0;
-
+            get
+            {
+                return PdV <= 0;
+            }
         }
 
-    }
+        public void Stop(Arm arm)
+            {
+
+                arm.Speed = 0;
+
+            }
+
+        }
 }

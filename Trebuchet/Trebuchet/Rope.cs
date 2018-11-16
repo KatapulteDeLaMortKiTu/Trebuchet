@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    public class Rope
+    public class Rope : IBreakable
     {
         public bool Tense { get; set; }
         public int PdV { get; set; }
+
+        public bool Broken
+        {
+            get
+            {
+                return PdV <= 0;
+            }
+        }
 
         public Rope()
         {

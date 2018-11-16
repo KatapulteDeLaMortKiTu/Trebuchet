@@ -9,7 +9,6 @@ namespace Trebuchet
     public class Spoon : IBreakable
     {
 
-        public int PdV { get; set; }
         public bool Lowered { get; set; }
         public bool Loaded { get; set; }
 

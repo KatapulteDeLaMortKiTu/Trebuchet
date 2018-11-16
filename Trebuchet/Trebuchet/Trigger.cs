@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    public class Trigger
+    public class Trigger : IBreakable
     {
         public int PdV { get; set; }
         public bool Triggered { get; set; }
+
+        public bool Broken
+        {
+            get
+            {
+                return PdV <= 0;
+            }
+        }
 
         public Trigger()
         {
