@@ -1,0 +1,7 @@
+D:\EPSI\Visual studio project\Projet_TU_Catapulte\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.csprojAssemblyReference.cache
+D:\EPSI\Visual studio project\Projet_TU_Catapulte\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.csproj.CoreCompileInputs.cache
+D:\EPSI\Visual studio project\Projet_TU_Catapulte\Trebuchet\Trebuchet\Trebuchet\bin\Debug\Trebuchet.exe.config
+D:\EPSI\Visual studio project\Projet_TU_Catapulte\Trebuchet\Trebuchet\Trebuchet\bin\Debug\Trebuchet.exe
+D:\EPSI\Visual studio project\Projet_TU_Catapulte\Trebuchet\Trebuchet\Trebuchet\bin\Debug\Trebuchet.pdb
+D:\EPSI\Visual studio project\Projet_TU_Catapulte\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.exe
+D:\EPSI\Visual studio project\Projet_TU_Catapulte\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.pdb
