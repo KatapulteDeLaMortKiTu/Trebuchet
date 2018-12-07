@@ -8,7 +8,7 @@ namespace Trebuchet
 {
     public class Spoon : IBreakable // supporte le rocher
     {
-
+        public int PdV { get; set; }
         public bool Lowered { get; set; }
         public bool Loaded { get; set; }
 
@@ -18,13 +18,13 @@ namespace Trebuchet
             this.Loaded = false;
         }
 
-        public int PdV
+   /*     public int PdV
         {
             get
             {
                 return PdV; //truc URL LALA; 
             }
-        }
+        }*/
         public bool Broken
         {
             get
