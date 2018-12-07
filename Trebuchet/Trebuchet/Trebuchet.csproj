@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Arm.cs" />
     <Compile Include="Beam.cs" />
+    <Compile Include="Connect.cs" />
     <Compile Include="IBreakable.cs" />
     <Compile Include="Rock.cs" />
     <Compile Include="Rope.cs" />

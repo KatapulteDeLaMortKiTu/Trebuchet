@@ -32,7 +32,7 @@ namespace Trebuchet
 
         public void Launch(Spoon spoon)
         {
-            spoon.loaded = false;
+            spoon.Loaded = false;
         }
     }
 }

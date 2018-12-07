@@ -1,0 +1,7 @@
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.csprojAssemblyReference.cache
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.csproj.CoreCompileInputs.cache
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\bin\Debug\Trebuchet.exe.config
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\bin\Debug\Trebuchet.exe
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\bin\Debug\Trebuchet.pdb
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.exe
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.pdb
