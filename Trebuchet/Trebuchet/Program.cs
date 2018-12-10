@@ -28,11 +28,11 @@ namespace Trebuchet
 
             Rope corde = new Rope
             {
-                PdV = Connect.GetLifeAsync("rope")
+                //PdV = Connect.GetLifeAsync("rope")
             };
 
             Console.WriteLine(arm.PdV);
-            Console.WriteLine(corde.PdV);
+            //Console.WriteLine(corde.PdV);
             Console.ReadKey();
         }
     }

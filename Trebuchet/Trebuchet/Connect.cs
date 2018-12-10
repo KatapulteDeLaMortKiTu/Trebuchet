@@ -27,8 +27,18 @@ namespace Trebuchet
 
             Stream reception = response.GetResponseStream();
             StreamReader reader = new StreamReader(reception, Encoding.UTF8);
+            int life = 0;
 
-            int life = reader.Read();
+
+            //string resultString = reader.ReadToEnd().Split(' ');
+            string test = reader.ReadToEnd();
+            //int life = Convert.ToInt32(reader.ReadToEnd());
+            Console.WriteLine(test);
+
+
+
+            response.Close();
+            reader.Close();
 
 
             //HttpClient client = new HttpClient
