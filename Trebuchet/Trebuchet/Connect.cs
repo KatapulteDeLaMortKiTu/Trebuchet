@@ -53,10 +53,44 @@ namespace Trebuchet
             return life;
         }
 
+        public void Fire(int power, string target)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/attack?power=" + power + "&target=" + target);
+                request.Method = "POST";
+
+                string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
+
+                request.Headers.Add("Authorization", "Basic " + credentials);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message + "L'appel au serveur a échoué");
+            }        
+        }
+
+        public void Heal(string target)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/target=" + target);
+                request.Method = "POST";
+
+                string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
+
+                request.Headers.Add("Authorization", "Basic " + credentials);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + "L'appel au serveur a échoué");
+            }
+        }
         
         public int GetInt(string str)
         {
-            MatchCollection collection = Regex.Matches(str, @"\b\d+\b");
+            Regex regex = new Regex(@"\b\d+\b");
+            MatchCollection collection = regex.Matches(str);
 
             List<int> ints = new List<int>();
             int result;
