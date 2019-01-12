@@ -16,23 +16,26 @@ namespace Trebuchet
     {
         static void Main()
         {
+            Connect connect = new Connect();
+
             Arm arm = new Arm
             {
-                PdV = Connect.GetLifeAsync("arm")
+                PdV = connect.GetLifeAsync("arm")
             };
 
             Spoon kouillaire = new Spoon
             {
-                PdV = Connect.GetLifeAsync("spoon")
+                PdV = connect.GetLifeAsync("spoon")
             };
 
             Rope corde = new Rope
             {
-                //PdV = Connect.GetLifeAsync("rope")
+                PdV = connect.GetLifeAsync("rope")
             };
 
             Console.WriteLine(arm.PdV);
-            //Console.WriteLine(corde.PdV);
+            Console.WriteLine(corde.PdV);
+            Console.WriteLine(corde.PdV);
             Console.ReadKey();
         }
     }
