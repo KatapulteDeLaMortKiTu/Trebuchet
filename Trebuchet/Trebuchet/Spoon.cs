@@ -8,7 +8,6 @@ namespace Trebuchet
 {
     public class Spoon : IBreakable
     {
-
         public bool Lowered { get; set; }
         public bool Loaded { get; set; }
 
@@ -24,7 +23,12 @@ namespace Trebuchet
             {
                 return PdV; //truc URL LALA; 
             }
+            set
+            {
+
+            }
         }
+
         public bool Broken
         {
             get
