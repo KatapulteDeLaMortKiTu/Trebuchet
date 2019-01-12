@@ -57,7 +57,7 @@ namespace Trebuchet
                 Console.WriteLine("###");
                 Console.WriteLine("Ready to shoot !");
             }
-            if (a.PdV <= 0 || b.PdV <= 0 || r.PdV <= 0 || s.PdV <= 0 || t.PdV <= 0 || bo.PdV <= 0)
+            if (a.Broken == true || b.Broken == true || r.Broken == true || s.Broken == true || t.Broken == true || bo.Broken == true)
             {
                 Console.WriteLine("One element or more are broken");
                 return 404;
