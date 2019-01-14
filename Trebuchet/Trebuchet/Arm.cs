@@ -8,7 +8,7 @@ namespace Trebuchet
 {
     public class Arm : IBreakable
     {
-        public int Angle { get; set; }
+        public bool Action { get; set; }
         public int Speed { get; set; }
         public int PdV { get; set; }
 
@@ -27,7 +27,7 @@ namespace Trebuchet
 
         public void Move()
         {
-            this.Angle = 0;
+            this.Action = true;
         }
 
         public void Launch(Spoon spoon)
