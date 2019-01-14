@@ -96,7 +96,8 @@ namespace Trebuchet
 
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                 {
-                    string json = "{power:" + power + ",target:" + target + "}";
+                    string json = "{ power:" + power + ", target:" + target + " }";
+                    Console.WriteLine(json);
 
                     streamWriter.Write(json);
 
@@ -109,8 +110,9 @@ namespace Trebuchet
                     Console.WriteLine(result);
                 }
 
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message + " L'appel au serveur a échoué");
             }        
@@ -165,3 +167,6 @@ namespace Trebuchet
 
    
 }
+
+
+
