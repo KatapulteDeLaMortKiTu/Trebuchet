@@ -5,3 +5,6 @@ C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuche
 C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\bin\Debug\Trebuchet.pdb
 C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.exe
 C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.pdb
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\bin\Debug\RestSharp.dll
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\bin\Debug\RestSharp.xml
+C:\Users\T4raa\OneDrive\Documents\EPSI\C#\Trebuchet\Trebuchet\Trebuchet\Trebuchet\obj\Debug\Trebuchet.csproj.CopyComplete
