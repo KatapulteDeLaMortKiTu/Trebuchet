@@ -25,15 +25,19 @@ namespace Trebuchet
             try
             {
                 Console.WriteLine("Récupération de la vie de " + name);
+                //Sleep pour éviter trop d'appels toutes les 3 secondes
                 Thread.Sleep(1500);
 
+                //Création de la requête GET avec les identifiants
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(link);
                 request.Method = "GET";
-                request.Credentials = new NetworkCredential("groupe9", "bur8NeG3");
-                string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
+                request.Credentials = new NetworkCredential(username, password);
 
+                string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
                 request.Headers.Add("Authorization", "Basic " + credentials);
 
+
+                //Lecture de la réponse du serveur (en XML)
                 reader = new StreamReader(((HttpWebResponse)request.GetResponse()).GetResponseStream());
                 answer = reader.ReadToEnd();
 
@@ -68,8 +72,11 @@ namespace Trebuchet
             try
             {
                 Console.WriteLine("Tir en cours...");
+                //Sleep pour éviter les appels trop rapides au serveur
                 Thread.Sleep(1500);
 
+
+                //Création de la requête avec les bons credentials
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/attack?power=" + power + "&target=" + target);
                 request.Method = "POST";
 
@@ -88,8 +95,11 @@ namespace Trebuchet
             try
             {
                 Console.WriteLine("Réparation en cours");
+                //Sleep pour éviter d'appeler trop rapidement le serveur 
                 Thread.Sleep(1500);
 
+
+                //Création de la requête avec les credentials
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/target=" + target);
                 request.Method = "POST";
 
@@ -105,6 +115,8 @@ namespace Trebuchet
         
         public int GetInt(string str)
         {
+            //On souhaite récupérer uniquement la valeur des PV dans la réponse en XML du serveur
+            //On supprime tout ce qui n'est pas un chiffre dans la réponse 
             Regex regex = new Regex(@"\b\d+\b");
             MatchCollection collection = regex.Matches(str);
 
@@ -116,7 +128,7 @@ namespace Trebuchet
                 ints.Add(result);
             }
 
-
+            //On renvoie le premier nombre trouvé (qui sera nos PV)
             return ints[0];
         }
 
