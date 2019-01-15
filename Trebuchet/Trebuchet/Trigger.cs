@@ -6,18 +6,10 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    public class Trigger : IBreakable
+    public class Trigger : Part
     {
         public int PdV { get; set; }
         public bool Triggered { get; set; }
-
-        public bool Broken
-        {
-            get
-            {
-                return PdV <= 0;
-            }
-        }
 
         public Trigger()
         {
@@ -27,6 +19,11 @@ namespace Trebuchet
         public void Start()
         {
             this.Triggered = true;
+        }
+
+        public override void Build()
+        {
+            Console.WriteLine("Le déclencher est construit");
         }
 
     }

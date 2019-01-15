@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    class Body : IBreakable // Maintient l'equipement au sol
+    class Body : Part
     {
         public int PdV { get; set; }
 
-        public bool Broken
+        public override void Build()
         {
-            get
-            {
-                return PdV <= 0;
-            }
+            Console.WriteLine("Le corps est construit");
         }
-
 
         public void Maintain(Body body) { }
     }

@@ -33,10 +33,6 @@ namespace Trebuchet
                 request.Method = "GET";
                 request.Credentials = new NetworkCredential(username, password);
 
-                string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
-                request.Headers.Add("Authorization", "Basic " + credentials);
-
-
                 //Lecture de la réponse du serveur (en XML)
                 reader = new StreamReader(((HttpWebResponse)request.GetResponse()).GetResponseStream());
                 answer = reader.ReadToEnd();
@@ -124,6 +120,7 @@ namespace Trebuchet
             int result;
             foreach(Match match in collection)
             {
+                //Cast de la réponse (string) en int
                 result = int.Parse(match.Value);
                 ints.Add(result);
             }

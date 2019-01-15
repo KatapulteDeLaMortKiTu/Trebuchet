@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    public class Rope : IBreakable
+    public class Rope : Part
     {
         public bool Tense { get; set; }
         public int PdV { get; set; }
 
-        public bool Broken
+        public override void Build()
         {
-            get
-            {
-                return PdV <= 0;
-            }
+            Console.WriteLine("La corde est construite");
         }
 
         public Rope()

@@ -6,24 +6,21 @@ using System.Threading.Tasks;
 
 namespace Trebuchet 
 {
-    public class Beam : IBreakable
+    public class Beam : Part
     {
         public int PdV { get; set; }
 
-        public bool Broken
-        {
-            get
-            {
-                return PdV <= 0;
-            }
-        }
 
         public void Stop(Arm arm)
             {
 
                 arm.Speed = 0;
-
             }
 
+        public override void Build()
+        {
+            Console.WriteLine("Le mât est construit");
         }
+
+    }
 }

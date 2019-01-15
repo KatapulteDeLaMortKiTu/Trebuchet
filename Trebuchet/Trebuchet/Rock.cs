@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    public class Rock
+    public struct Rock
     {
 
         public int width;

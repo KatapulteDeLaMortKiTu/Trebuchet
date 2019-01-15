@@ -46,6 +46,7 @@
     <Compile Include="Arm.cs" />
     <Compile Include="Beam.cs" />
     <Compile Include="Body.cs" />
+    <Compile Include="InvalidConnectException.cs" />
     <Compile Include="Connect.cs" />
     <Compile Include="IBreakable.cs" />
     <Compile Include="Rock.cs" />

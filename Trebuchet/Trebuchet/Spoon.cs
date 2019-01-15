@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    public class Spoon : IBreakable
+    public class Spoon : Part
     {
         public bool Lowered { get; set; }
         public bool Loaded { get; set; }
@@ -19,18 +19,15 @@ namespace Trebuchet
 
         public int PdV { get; set; }
 
-        public bool Broken
-        {
-            get
-            {
-                return PdV <= 0;
-            }
-        }
-
         public void Load(Rock rock)
         {
             this.Loaded = true;
            
+        }
+
+        public override void Build()
+        {
+            Console.WriteLine("Le receptacle est construit");
         }
 
     }

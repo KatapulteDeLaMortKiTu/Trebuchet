@@ -6,19 +6,11 @@ using System.Threading.Tasks;
 
 namespace Trebuchet
 {
-    public class Arm : IBreakable
+    public class Arm : Part
     {
         public bool Action { get; set; }
         public int Speed { get; set; }
         public int PdV { get; set; }
-
-        public bool Broken
-        {
-            get
-            {
-                return PdV <= 0;
-            }
-        }
 
         public Arm()
         {
@@ -33,6 +25,16 @@ namespace Trebuchet
         public void Launch(Spoon spoon)
         {
             spoon.Loaded = false;
+        }
+
+        public void Launch() //Polymorphisme
+        {
+            Console.WriteLine("Tir à vide !");
+        }
+
+        public override void Build()
+        {
+            Console.WriteLine("Le bras est construit");
         }
     }
 }

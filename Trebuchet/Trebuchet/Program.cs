@@ -16,12 +16,16 @@ namespace Trebuchet
     {
         static void Main()
         {
+            Console.WriteLine("Bienvenue ! Quel est votre nom ?");
+            //Type anonyme
+            var commander = new { Rang = "general ", Nom = Console.ReadLine()};
+
+            Console.WriteLine("Enchanté " + commander.Rang + commander.Nom + ", la bataille peut commencer !");
+
             Connect connect = new Connect();
 
             //Nouvelle catapulte
-
             
-
             Arm arm = new Arm
             {
                 PdV = connect.GetLifeAsync("arm")
@@ -52,9 +56,6 @@ namespace Trebuchet
                 PdV = connect.GetLifeAsync("body")
             };
 
-            Console.WriteLine(arm.PdV);
-            Console.WriteLine(corde.PdV);
-            Console.WriteLine(corde.PdV);
             Console.ReadKey();
 
             int tir = TirPLEINEPUISSANCE(arm, ultralaser, corde, kouillaire, debengale, building);
@@ -66,17 +67,23 @@ namespace Trebuchet
 
         public static int TirPLEINEPUISSANCE(Arm a, Beam b, Rope r, Spoon s, Trigger t, Body bo)
         {
-            // valeurs fixes pour tests
-            int WidthMin = 0;
-            int WidthMax = 20;
-            int WeightMin = 0;
-            int WeightMax = 20;
-            Random rnd = new Random();
-            int Width = rnd.Next(WidthMin, WidthMax);
-            int Weight = rnd.Next(WeightMin, WeightMax);
-            Rock Objetatirer = new Rock(0, 0);
+
+            //Méthode d'extension
+            float Width = 0.RandTo20();
+            float Weight = 0.RandTo20();
+            //Cast explicite des floats de RandTo20() en int pour Rock(int, int)
+            Rock Objetatirer = new Rock((int)Width, (int)Weight);
 
             // manual set life to test the following tests :D
+
+            try
+            {
+
+            }
+            catch (LifeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
 
             //check life
@@ -95,8 +102,7 @@ namespace Trebuchet
             }
 
 
-            if (Objetatirer != null)
-            {
+            
                 s.Load(Objetatirer);
                 if (s.Loaded is true)
                 {
@@ -148,11 +154,8 @@ namespace Trebuchet
                 {
                     Console.WriteLine("Spoon is not loaded.");
                 }
-            }
-            else
-            {
-                Console.WriteLine("This fucking rock is missing !");
-            }
+            
+            
             return 0;
         }
     }
