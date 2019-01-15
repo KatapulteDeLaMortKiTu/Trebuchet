@@ -5,11 +5,6 @@ using System.IO;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Collections.Specialized;
-using System.Web;
-using RestSharp;
-using RestSharp.Authenticators;
 
 namespace Trebuchet
 {
@@ -46,7 +41,7 @@ namespace Trebuchet
                 reader = new StreamReader(((HttpWebResponse)request.GetResponse()).GetResponseStream());
                 answer = reader.ReadToEnd();
 
-                
+                Thread.Sleep(1500);
                 
             }
             catch(Exception e)
@@ -81,40 +76,17 @@ namespace Trebuchet
                 Thread.Sleep(1500);
 
 
-                //Création de la requête
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/fire");
+                //Création de la requête avec les bons credentials
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/attack?power=" + power + "&target=" + target);
                 request.Method = "POST";
 
-                //Encodage et gestion de l'autorisation 
-                String encoded = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
-                request.Headers.Add("Authorization", "Basic " + encoded);
+                string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
-                request.ContentType = "application/json";
-                request.Method = "POST";
-
-                //Erreur 500 (???)
-
-                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                {
-                    string json = "{ power:" + power + ", target:" + target + " }";
-                    Console.WriteLine(json);
-
-                    streamWriter.Write(json);
-
-                }
-
-                var response = (HttpWebResponse)request.GetResponse();
-                using (var streamReader = new StreamReader(response.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-                    Console.WriteLine(result);
-                }
-
-
+                request.Headers.Add("Authorization", "Basic " + credentials);
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                Console.WriteLine(e.Message + " L'appel au serveur a échoué");
+                Console.WriteLine(e.Message + "L'appel au serveur a échoué");
             }        
         }
 
@@ -128,14 +100,12 @@ namespace Trebuchet
 
 
                 //Création de la requête avec les credentials
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte");
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/target=" + target);
                 request.Method = "POST";
 
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
-
-                Console.WriteLine(target + " réparé !");
             }
             catch (Exception e)
             {
@@ -167,6 +137,3 @@ namespace Trebuchet
 
    
 }
-
-
-

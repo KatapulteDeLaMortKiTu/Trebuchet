@@ -17,17 +17,7 @@ namespace Trebuchet
             this.Loaded = false;
         }
 
-        public int PdV
-        {
-            get
-            {
-                return PdV; //truc URL LALA; 
-            }
-            set
-            {
-
-            }
-        }
+        public int PdV { get; set; }
 
         public bool Broken
         {
