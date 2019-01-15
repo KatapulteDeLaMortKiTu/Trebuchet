@@ -78,21 +78,7 @@ namespace Trebuchet
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                Console.WriteLine("Content length is {0}", response.ContentLength);
-                Console.WriteLine("Content type is {0}", response.ContentType);
-
-                // Get the stream associated with the response.
-                Stream receiveStream = response.GetResponseStream();
-
-                // Pipes the stream to a higher level stream reader with the required encoding format. 
-                StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
-
-                Console.WriteLine("Response stream received.");
-                Console.WriteLine(readStream.ReadToEnd());
-                response.Close();
-                readStream.Close();
+                
             }
             catch(Exception e)
             {
