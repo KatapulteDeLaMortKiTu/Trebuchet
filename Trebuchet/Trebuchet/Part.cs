@@ -42,6 +42,7 @@ namespace Trebuchet
             }
         }
 
+        //Fonction virtuelle
         public virtual void Build() {
             Console.WriteLine("Construction en cours");
         }

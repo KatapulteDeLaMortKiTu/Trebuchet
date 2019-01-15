@@ -66,7 +66,7 @@ namespace Trebuchet
             {
                 if(element.GetLife() < 50)
                 {
-                    connect.Heal(element.GetName());
+                    connect.Heal();
                 }
             }
         }
