@@ -66,7 +66,7 @@ namespace Trebuchet
             {
                 if(element.GetLife() < 50)
                 {
-                    connect.Heal();
+                    connect.Heal(element.GetName());
                 }
             }
         }
@@ -77,11 +77,12 @@ namespace Trebuchet
             {
                 if (element.Broken)
                 {
-                    throw new LifeException(element.GetName());
+                    Console.WriteLine("###");
+                    return true;
                 }
                 else
                 {
-                    Console.WriteLine(element.GetName() + " checked !");
+                    Console.WriteLine(element.GetName() + " checked !\n");
                 }
             }
             Console.WriteLine("###");

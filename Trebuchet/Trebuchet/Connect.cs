@@ -78,15 +78,7 @@ namespace Trebuchet
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
-
-                //Récupération de la réponse pour s'assurer que tout s'est bien passé
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                if(response.StatusCode == HttpStatusCode.OK)
-                {
-                    Console.WriteLine("Le " + target + "a été touché général !");
-                }
-
+                
             }
             catch(Exception e)
             {
@@ -110,16 +102,6 @@ namespace Trebuchet
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
-
-                //Récupération de la réponse pour s'assurer que tout s'est bien passé
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    Console.WriteLine("Catapulte réparée !");
-                }
-
-
             }
             catch (Exception e)
             {

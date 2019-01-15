@@ -8,6 +8,7 @@ namespace Trebuchet
 {
     public struct Rock
     {
+
         public int width;
         public int weight;
 
