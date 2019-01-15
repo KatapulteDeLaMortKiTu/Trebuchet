@@ -70,7 +70,6 @@ namespace Trebuchet
                 }
             }
         }
-
         public bool CheckIfBroken()
         {
             Console.WriteLine("###");
