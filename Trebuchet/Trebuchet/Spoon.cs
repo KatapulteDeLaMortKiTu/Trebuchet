@@ -26,6 +26,8 @@ namespace Trebuchet
            
         }
 
+        //Override de la fonction virtuelle Part.Build()
+
         public override void Build()
         {
             Console.WriteLine("Le receptacle est construit");

@@ -10,6 +10,7 @@ namespace Trebuchet
     {
          public bool Tense { get; set; }
 
+        //Override de la fonction virtuelle Part.Build()
         public override void Build()
         {
             Console.WriteLine("La corde est construite");

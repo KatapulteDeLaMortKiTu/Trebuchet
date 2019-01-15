@@ -28,6 +28,7 @@ namespace Trebuchet
         {
             get
             {
+                //Si les PV sont en dessous de 0, alors Broken est vrai
                 if(this.GetLife() < 0)
                 {
                     return true;
@@ -40,6 +41,7 @@ namespace Trebuchet
             }
         }
 
+        //Fonction Virtuelle non utilisée
         public virtual void Build() {
             Console.WriteLine("Construction en cours");
         }

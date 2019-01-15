@@ -22,6 +22,8 @@ namespace Trebuchet
                 arm.Speed = 0;
             }
 
+        //Override de la fonction virtuelle Part.Build()
+
         public override void Build()
         {
             Console.WriteLine("Le mât est construit");

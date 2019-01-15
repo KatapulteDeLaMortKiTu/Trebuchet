@@ -24,6 +24,8 @@ namespace Trebuchet
             this.Triggered = true;
         }
 
+        //Override de la fonction virtuelle Part.Build()
+
         public override void Build()
         {
             Console.WriteLine("Le déclencheur est construit");

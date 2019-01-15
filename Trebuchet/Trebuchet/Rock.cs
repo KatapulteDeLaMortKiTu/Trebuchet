@@ -12,6 +12,8 @@ namespace Trebuchet
         public int width;
         public int weight;
 
+        //Structure utilisée pour déterminer la puissance du tir
+
         public Rock(int width, int weight)
         {
             this.width = width;

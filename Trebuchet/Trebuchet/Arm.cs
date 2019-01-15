@@ -33,6 +33,8 @@ namespace Trebuchet
             Console.WriteLine("Tir à vide !");
         }
 
+        //Override de la fonction virtuelle Part.Build()
+
         public override void Build()
         {
             Console.WriteLine("Le bras est construit");
