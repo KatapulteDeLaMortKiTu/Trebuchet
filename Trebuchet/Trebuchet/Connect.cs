@@ -25,8 +25,8 @@ namespace Trebuchet
             try
             {
                 Console.WriteLine("Récupération de la vie de " + name);
-                //Sleep pour éviter trop d'appels toutes les 3 secondes
-                Thread.Sleep(1500);
+                ////Sleep pour éviter trop d'appels toutes les 3 secondes
+                //Thread.Sleep(1500);
 
                 //Création de la requête GET avec les identifiants
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(link);
@@ -37,7 +37,6 @@ namespace Trebuchet
                 reader = new StreamReader(((HttpWebResponse)request.GetResponse()).GetResponseStream());
                 answer = reader.ReadToEnd();
 
-                Thread.Sleep(1500);
                 
             }
             catch(Exception e)
@@ -67,7 +66,7 @@ namespace Trebuchet
         {
             try
             {
-                Console.WriteLine("Tir en cours...");
+                Console.WriteLine("\nTir en cours...");
                 //Sleep pour éviter les appels trop rapides au serveur
                 Thread.Sleep(1500);
 
@@ -77,6 +76,11 @@ namespace Trebuchet
                 request.Method = "POST";
 
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream receiveStream = response.GetResponseStream();
+                StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+                Console.WriteLine(readStream.ReadToEnd());
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
             }

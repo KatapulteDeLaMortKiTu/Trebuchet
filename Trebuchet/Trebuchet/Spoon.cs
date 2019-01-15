@@ -15,9 +15,10 @@ namespace Trebuchet
         {
             this.Lowered = false;
             this.Loaded = false;
+            this.Name = "spoon";
+            Connect connect = new Connect();
+            PdV = connect.GetLifeAsync(Name);
         }
-
-        public int PdV { get; set; }
 
         public void Load(Rock rock)
         {

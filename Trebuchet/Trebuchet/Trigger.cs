@@ -8,12 +8,15 @@ namespace Trebuchet
 {
     public class Trigger : Part
     {
-        public int PdV { get; set; }
+
         public bool Triggered { get; set; }
 
         public Trigger()
         {
             this.Triggered = false;
+            this.Name = "trigger";
+            Connect connect = new Connect();
+            PdV = connect.GetLifeAsync(Name);
         }
 
         public void Start()
@@ -23,7 +26,7 @@ namespace Trebuchet
 
         public override void Build()
         {
-            Console.WriteLine("Le déclencher est construit");
+            Console.WriteLine("Le déclencheur est construit");
         }
 
     }

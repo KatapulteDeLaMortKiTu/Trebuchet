@@ -46,9 +46,12 @@
     <Compile Include="Arm.cs" />
     <Compile Include="Beam.cs" />
     <Compile Include="Body.cs" />
-    <Compile Include="InvalidConnectException.cs" />
+    <Compile Include="Catapulte.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="LifeException.cs" />
     <Compile Include="Connect.cs" />
     <Compile Include="IBreakable.cs" />
+    <Compile Include="Part.cs" />
     <Compile Include="Rock.cs" />
     <Compile Include="Rope.cs" />
     <Compile Include="Spoon.cs" />
