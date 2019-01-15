@@ -8,20 +8,20 @@ namespace Trebuchet
 {
     public abstract class Part : IBreakable
     {
-        protected string name;
-        protected int vie;
+        protected string Name;
+        protected int PdV;
 
         public int GetLife()
-        { return vie; }
+        { return PdV; }
 
         public void SetLife(int value)
-        { vie = value; }
+        { PdV = value; }
 
         public string GetName()
-        { return name; }
+        { return Name; }
 
         public void SetName(string value)
-        { name = value; }
+        { Name = value; }
 
         public bool Broken
         {
@@ -43,6 +43,6 @@ namespace Trebuchet
             Console.WriteLine("Construction en cours");
         }
 
-        public virtual bool Checklife() => vie >= 0;
+        public virtual bool Checklife() => PdV >= 0;
     }
 }

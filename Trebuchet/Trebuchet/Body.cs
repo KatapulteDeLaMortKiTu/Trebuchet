@@ -8,7 +8,12 @@ namespace Trebuchet
 {
     class Body : Part
     {
-        public int PdV { get; set; }
+        public Body()
+        {
+            this.Name = "body";
+            Connect connect = new Connect();
+            PdV = connect.GetLifeAsync(Name);
+        }
 
         public override void Build()
         {

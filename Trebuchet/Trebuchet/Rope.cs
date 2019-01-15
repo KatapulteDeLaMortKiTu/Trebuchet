@@ -8,8 +8,7 @@ namespace Trebuchet
 {
     public class Rope : Part
     {
-        public bool Tense { get; set; }
-        public int PdV { get; set; }
+         public bool Tense { get; set; }
 
         public override void Build()
         {
@@ -19,6 +18,9 @@ namespace Trebuchet
         public Rope()
         {
             this.Tense = false;
+            this.Name = "rope";
+            Connect connect = new Connect();
+            PdV = connect.GetLifeAsync(Name);
         }
 
         public void Lower(Spoon spoon)

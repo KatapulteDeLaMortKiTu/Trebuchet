@@ -25,8 +25,8 @@ namespace Trebuchet
             try
             {
                 Console.WriteLine("Récupération de la vie de " + name);
-                //Sleep pour éviter trop d'appels toutes les 3 secondes
-                Thread.Sleep(1500);
+                ////Sleep pour éviter trop d'appels toutes les 3 secondes
+                //Thread.Sleep(1500);
 
                 //Création de la requête GET avec les identifiants
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(link);
@@ -37,7 +37,6 @@ namespace Trebuchet
                 reader = new StreamReader(((HttpWebResponse)request.GetResponse()).GetResponseStream());
                 answer = reader.ReadToEnd();
 
-                Thread.Sleep(1500);
                 
             }
             catch(Exception e)
@@ -67,18 +66,33 @@ namespace Trebuchet
         {
             try
             {
-                Console.WriteLine("Tir en cours...");
+                Console.WriteLine("\nTir en cours...");
                 //Sleep pour éviter les appels trop rapides au serveur
                 Thread.Sleep(1500);
 
 
                 //Création de la requête avec les bons credentials
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/attack?power=" + power + "&target=" + target);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/fire?power=" + power + "&target=" + target);
                 request.Method = "POST";
 
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                Console.WriteLine("Content length is {0}", response.ContentLength);
+                Console.WriteLine("Content type is {0}", response.ContentType);
+
+                // Get the stream associated with the response.
+                Stream receiveStream = response.GetResponseStream();
+
+                // Pipes the stream to a higher level stream reader with the required encoding format. 
+                StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+
+                Console.WriteLine("Response stream received.");
+                Console.WriteLine(readStream.ReadToEnd());
+                response.Close();
+                readStream.Close();
             }
             catch(Exception e)
             {

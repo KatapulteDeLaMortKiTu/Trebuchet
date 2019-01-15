@@ -8,8 +8,13 @@ namespace Trebuchet
 {
     public class Beam : Part
     {
-        public int PdV { get; set; }
 
+        public Beam()
+        {
+            this.Name = "beam";
+            Connect connect = new Connect();
+            PdV = connect.GetLifeAsync(Name);
+        }
 
         public void Stop(Arm arm)
             {

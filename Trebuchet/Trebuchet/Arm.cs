@@ -10,11 +10,12 @@ namespace Trebuchet
     {
         public bool Action { get; set; }
         public int Speed { get; set; }
-        public int PdV { get; set; }
 
         public Arm()
         {
-
+            this.Name = "arm";
+            Connect connect = new Connect();
+            PdV = connect.GetLifeAsync(Name);
         }
 
         public void Move()
