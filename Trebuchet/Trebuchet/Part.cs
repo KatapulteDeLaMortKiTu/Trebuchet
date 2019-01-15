@@ -10,9 +10,17 @@ namespace Trebuchet
     {
         protected string Name;
         protected int PdV;
+        protected int PdvLost;
+
 
         public int GetLife()
         { return PdV; }
+
+        public int GetLifeLost()
+        {
+            PdvLost = 99 - PdV;
+            return PdvLost;
+        }
 
         public void SetLife(int value)
         { PdV = value; }

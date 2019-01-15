@@ -36,8 +36,21 @@ namespace Trebuchet
                     //Méthode d'extension
                     float Width = 0.RandTo20();
                     float Weight = 0.RandTo20();
+
+                    //Test reflection
+                    System.Type type = Weight.GetType();
+                    System.Console.WriteLine(type);
+                    // On remarque alors que le type du poids est Single (correspond à un float)
+                    // On peut alors essayer de regarder le nom complet de l'assembly chargée pour un type Single
+                    System.Reflection.Assembly info = typeof(System.Single).Assembly;
+                    System.Console.WriteLine(info);
+                    
+
+
                     //Cast explicite des floats de RandTo20() en int pour Rock(int, int)
                     Rock Objetatirer = new Rock((int)Width, (int)Weight);
+                    dynamic check = new NotEnoughRockClass();
+                    Console.WriteLine(check.NotEnoughRock(Objetatirer));
                     catapulte.ProcessTir(Objetatirer);
                     catapulte.CheckLifeThenHeal();
                 }
@@ -59,16 +72,33 @@ namespace Trebuchet
             return 0;
         }
 
+        // Pour la beauté on ajoute un dynamic pour regarder s'il y a assez de cailloux en réserve
+        class NotEnoughRockClass
+        {
+            dynamic prop { get; set; }
+            public dynamic NotEnoughRock(dynamic d)
+            {
+                dynamic test = "C'est bon general !";
+                if (d is Rock)
+                {
+                    return test;
+                }
+                if (d is float)
+                {
+                    return 10;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
+
+
+
 
         public static int TirPLEINEPUISSANCE(Catapulte catapulte)
         {
-
-            
-
-            
-
-
-            
                 //s.Load(Objetatirer);
                 //if (s.Loaded is true)
                 //{
