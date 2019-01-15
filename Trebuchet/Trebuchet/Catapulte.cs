@@ -73,16 +73,16 @@ namespace Trebuchet
         public bool CheckIfBroken()
         {
             Console.WriteLine("###");
-            foreach(Part element in parts)
+            foreach (Part element in parts)
             {
                 if (element.Broken)
                 {
-                    Console.WriteLine("###");
-                    return true;
+                    //Throw une exception si l'élement est cassé
+                    throw new LifeException(element.GetName());
                 }
                 else
                 {
-                    Console.WriteLine(element.GetName() + " checked !\n");
+                    Console.WriteLine(element.GetName() + " checked !");
                 }
             }
             Console.WriteLine("###");

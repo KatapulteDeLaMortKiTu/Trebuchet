@@ -38,11 +38,11 @@ namespace Trebuchet
 
                     //Test reflection
                     System.Type type = Weight.GetType();
-                    System.Console.WriteLine(type);
+
                     // On remarque alors que le type du poids est Single (correspond à un float)
                     // On peut alors essayer de regarder le nom complet de l'assembly chargée pour un type Single
                     System.Reflection.Assembly info = typeof(System.Single).Assembly;
-                    System.Console.WriteLine(info);
+
 
 
 

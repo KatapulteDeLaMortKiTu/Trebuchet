@@ -8,9 +8,10 @@ namespace Trebuchet
 {
     class LifeException : Exception
     {
-        public LifeException(string message) : base(message)
+        public LifeException() { }
+
+        public LifeException(string nom) : base("Cet élément est cassé : " + nom)
         {
-            Console.WriteLine(message);
         }
     }
 }

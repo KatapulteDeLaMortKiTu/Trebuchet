@@ -51,6 +51,7 @@
     <Compile Include="LifeException.cs" />
     <Compile Include="Connect.cs" />
     <Compile Include="IBreakable.cs" />
+    <Compile Include="NotEnoughRockClass.cs" />
     <Compile Include="Part.cs" />
     <Compile Include="Rock.cs" />
     <Compile Include="Rope.cs" />
