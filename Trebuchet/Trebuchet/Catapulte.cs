@@ -78,12 +78,11 @@ namespace Trebuchet
             {
                 if (element.Broken)
                 {
-                    Console.WriteLine("###");
-                    return true;
+                    throw new LifeException(element.GetName());
                 }
                 else
                 {
-                    Console.WriteLine(element.GetName() + " checked !\n");
+                    Console.WriteLine(element.GetName() + " checked !");
                 }
             }
             Console.WriteLine("###");

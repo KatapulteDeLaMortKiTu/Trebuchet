@@ -48,6 +48,7 @@
     <Compile Include="Body.cs" />
     <Compile Include="Catapulte.cs" />
     <Compile Include="Extension.cs" />
+    <Compile Include="GenericList.cs" />
     <Compile Include="LifeException.cs" />
     <Compile Include="Connect.cs" />
     <Compile Include="IBreakable.cs" />

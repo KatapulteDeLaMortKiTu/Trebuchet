@@ -9,7 +9,7 @@ namespace Trebuchet
     public abstract class Part : IBreakable
     {
         protected string Name;
-        protected int PdV;
+        public int PdV;
 
         public int GetLife()
         { return PdV; }
@@ -35,7 +35,10 @@ namespace Trebuchet
                 {
                     return false;
                 }
-               
+            }
+            set
+            {
+                Broken = value;
             }
         }
 
