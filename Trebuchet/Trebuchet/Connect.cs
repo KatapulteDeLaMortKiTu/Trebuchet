@@ -79,16 +79,13 @@ namespace Trebuchet
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
 
+                //Récupération de la réponse pour s'assurer que tout s'est bien passé
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                 if(response.StatusCode == HttpStatusCode.OK)
                 {
-                    Console.WriteLine("Le " + target + " a été touché !");
+                    Console.WriteLine("Le " + target + "a été touché général !");
                 }
-
-                response.Close();
-                
-
 
             }
             catch(Exception e)
@@ -97,7 +94,7 @@ namespace Trebuchet
             }        
         }
 
-        public void Heal()
+        public void Heal(string target)
         {
             try
             {
@@ -107,13 +104,14 @@ namespace Trebuchet
 
 
                 //Création de la requête avec les credentials
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte&target="+username);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://dev18504.service-now.com/api/20557/catapulte/target=" + target);
                 request.Method = "POST";
 
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
 
+                //Récupération de la réponse pour s'assurer que tout s'est bien passé
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                 if (response.StatusCode == HttpStatusCode.OK)
@@ -121,7 +119,6 @@ namespace Trebuchet
                     Console.WriteLine("Catapulte réparée !");
                 }
 
-                response.Close();
 
             }
             catch (Exception e)
