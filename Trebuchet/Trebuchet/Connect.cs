@@ -37,9 +37,9 @@ namespace Trebuchet
                 reader = new StreamReader(((HttpWebResponse)request.GetResponse()).GetResponseStream());
                 answer = reader.ReadToEnd();
 
-                
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message + "L'appel au serveur a échoué");
             }
@@ -54,7 +54,7 @@ namespace Trebuchet
             {
                 life = GetInt(answer);
             }
-            catch(FormatException e)
+            catch (FormatException e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -78,12 +78,20 @@ namespace Trebuchet
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
-                
+
+                //Récupération de la réponse pour s'assurer que tout s'est bien passé
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    Console.WriteLine("Le " + target + " a été touché général !");
+                }
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message + "L'appel au serveur a échoué");
-            }        
+            }
         }
 
         public void Heal(string target)
@@ -102,13 +110,23 @@ namespace Trebuchet
                 string credentials = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
                 request.Headers.Add("Authorization", "Basic " + credentials);
+
+                //Récupération de la réponse pour s'assurer que tout s'est bien passé
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    Console.WriteLine("Catapulte réparée !");
+                }
+
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message + "L'appel au serveur a échoué");
             }
         }
-        
+
         public int GetInt(string str)
         {
             //On souhaite récupérer uniquement la valeur des PV dans la réponse en XML du serveur
@@ -118,7 +136,7 @@ namespace Trebuchet
 
             List<int> ints = new List<int>();
             int result;
-            foreach(Match match in collection)
+            foreach (Match match in collection)
             {
                 //Cast de la réponse (string) en int
                 result = int.Parse(match.Value);
@@ -132,5 +150,5 @@ namespace Trebuchet
 
     }
 
-   
+
 }

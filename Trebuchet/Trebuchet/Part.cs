@@ -15,12 +15,6 @@ namespace Trebuchet
         public int GetLife()
         { return PdV; }
 
-        public int GetLifeLost()
-        {
-            PdvLost = 99 - PdV;
-            return PdvLost;
-        }
-
         public void SetLife(int value)
         { PdV = value; }
 
